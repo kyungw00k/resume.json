@@ -1,0 +1,25 @@
+{
+  "name": "resume.json",
+  "version": "0.1.0",
+  "description": "My resume in JSON format",
+  "scripts": {
+    "test": "./node_modules/.bin/hackmyresume VALIDATE en.json",
+    "build": "./node_modules/.bin/hackmyresume BUILD en.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kyungw00k/resume.json.git"
+  },
+  "keywords": [
+    "resume"
+  ],
+  "author": "Kyungwook Park",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kyungw00k/resume.json/issues"
+  },
+  "homepage": "https://github.com/kyungw00k/resume.json#readme",
+  "dependencies": {
+    "hackmyresume": "^1.8.0"
+  }
+}
