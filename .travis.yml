@@ -28,10 +28,10 @@ after_success:
   - npm install -g hackmyresume
   - hackmyresume BUILD en.json TO "$RESUME_BUILD_DIR"/resume.all 
   - git init "$RESUME_BUILD_DIR"
-  - pushd "$BLOG_BUILD_DIR" &&
+  - pushd "$RESUME_BUILD_DIR" &&
     git checkout -b gh-pages &&
     git add . &&
-    git config user.name "`cat /tmp/blog-author`" &&
-    git config user.email "`cat /tmp/blog-author-email`" &&
-    git commit -a -F /tmp/blog-commit &&
+    git config user.name "`cat /tmp/resume-author`" &&
+    git config user.email "`cat /tmp/resume-author-email`" &&
+    git commit -a -F /tmp/resume-commit &&
     git push -f "https://$GITHUB_AUTH:x-oauth-basic@github.com/kyungw00k/resume.json.git" gh-pages
