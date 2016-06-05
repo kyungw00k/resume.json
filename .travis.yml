@@ -1,0 +1,34 @@
+language: node_js
+
+node_js:
+  - "5"
+
+git:
+  depth: 9999999
+
+branches:
+  only:
+    - master
+
+env:
+  global:
+    - RESUME_BUILD_DIR=/tmp/resume-out
+
+before_script:
+  - npm install -g hackmyresume
+
+after_script:
+  - hackmyresume BUILD en.json TO "$RESUME_BUILD_DIR"/resume.all 
+
+after_success:
+  - git log -n1 --format="format:%s%n%n$TRAVIS_COMMIT_RANGE" > /tmp/resume-commit
+  - git log -n1 --format="format:%an" > /tmp/resume-author
+  - git log -n1 --format="format:%ae" > /tmp/resume-author-email
+  - git init "$RESUME_BUILD_DIR"
+  - pushd "$BLOG_BUILD_DIR" &&
+    git checkout -b gh-pages &&
+    git add . &&
+    git config user.name "`cat /tmp/blog-author`" &&
+    git config user.email "`cat /tmp/blog-author-email`" &&
+    git commit -a -F /tmp/blog-commit &&
+    git push -f "https://$GITHUB_AUTH:x-oauth-basic@github.com/kyungw00k/resume.json.git" gh-pages
