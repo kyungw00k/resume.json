@@ -14,16 +14,19 @@ env:
   global:
     - RESUME_BUILD_DIR=/tmp/resume-out
 
-before_script:
-  - npm install -g hackmyresume
-
-after_script:
-  - hackmyresume BUILD en.json TO "$RESUME_BUILD_DIR"/resume.all 
+before_install:
+  - sudo apt-get install libfontenc1 libxfont1 xfonts-encodings xfonts-utils xfonts-base xfonts-75dpi
+  - sudo apt-get install fonts-nanum fonts-nanum-coding fonts-nanum-extra
+  - wget https://bitbucket.org/wkhtmltopdf/wkhtmltopdf/downloads/wkhtmltox-0.13.0-alpha-7b36694_linux-precise-amd64.deb
+  - sudo dpkg -i wkhtmltox-0.13.0-alpha-7b36694_linux-precise-amd64.deb
+  - wkhtmltopdf --version
 
 after_success:
   - git log -n1 --format="format:%s%n%n$TRAVIS_COMMIT_RANGE" > /tmp/resume-commit
   - git log -n1 --format="format:%an" > /tmp/resume-author
   - git log -n1 --format="format:%ae" > /tmp/resume-author-email
+  - npm install -g hackmyresume
+  - hackmyresume BUILD en.json TO "$RESUME_BUILD_DIR"/resume.all 
   - git init "$RESUME_BUILD_DIR"
   - pushd "$BLOG_BUILD_DIR" &&
     git checkout -b gh-pages &&
