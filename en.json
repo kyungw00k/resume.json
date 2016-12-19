@@ -9,15 +9,8 @@
     "characterClass":"Programmer"
   },
   "contact":{
-    "website":"https://kyungw00k.wordpress.com/",
+    "website":"https://kyungw00k.github.io/",
     "email":"parksama@gmail.com"
-  },
-  "location":{
-    "address":"93, Wonnohyeong-ro",
-    "postalCode":"63085",
-    "city":"Jeju-si",
-    "countryCode":"KR",
-    "region":"Jeju-do"
   },
   "social":[
     {
@@ -34,7 +27,7 @@
     }
   ],
   "employment":{
-    "summary":"",
+    "summary":"Software Engineer",
     "history":[
       {
         "employer":"Kakao",
@@ -348,26 +341,11 @@
   ],
   "writing":[
     {
-      "title":"Today I Learned",
-      "publisher":{
-        "name":"GitBook",
-        "url":"https://www.gitbook.com"
-      },
+      "title":"Personal Blog",
       "flavor":"book",
       "date":"2015",
       "summary":"Write something I learned about, mostly technical issue.",
-      "url":"https://www.gitbook.com/read/book/kyungw00k/today-i-learned"
-    },
-    {
-      "title":"Just another geek weblog",
-      "publisher":{
-        "name":"Wordpress.com",
-        "url":"https://wordpress.com"
-      },
-      "flavor":"blog",
-      "date":"2004",
-      "summary":"My blog",
-      "url":"https://kyungw00k.wordpress.com"
+      "url":"https://kyungw00k.github.io/"
     },
     {
       "title":"라즈베리 파이 쿡북(Raspberry Pi Cookbook)",
@@ -401,24 +379,31 @@
       ],
       "url":"http://www.insightbook.co.kr/books/programming-insight/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%99%84%EB%B2%BD-%EA%B0%80%EC%9D%B4%EB%93%9C",
       "summary":"Translated into Korean"
+    },
+    {
+      "title":"(Deprecated)Today I Learned",
+      "publisher":{
+        "name":"GitBook",
+        "url":"https://www.gitbook.com"
+      },
+      "flavor":"book",
+      "date":"2015",
+      "summary":"Write something I learned about, mostly technical issue.",
+      "url":"https://www.gitbook.com/read/book/kyungw00k/today-i-learned"
+    },
+    {
+      "title":"(Deprecated)Just another geek weblog",
+      "publisher":{
+        "name":"Wordpress.com",
+        "url":"https://wordpress.com"
+      },
+      "flavor":"blog",
+      "date":"2004",
+      "summary":"My blog",
+      "url":"https://kyungw00k.wordpress.com"
     }
   ],
   "reading":[
-    {
-      "title":"Daum Webtoon",
-      "flavor":"website",
-      "url":"http://webtoon.daum.net/"
-    },
-    {
-      "title":"Naver Webtoon",
-      "flavor":"website",
-      "url":"http://comic.naver.com/webtoon/weekday.nhn"
-    },
-    {
-      "title":"Lezhin Comics",
-      "flavor":"website",
-      "url":"https://www.lezhin.com/"
-    },
     {
       "title":"JavaScript Weekly",
       "flavor":"website",
@@ -460,7 +445,7 @@
     },
     {
       "language":"English",
-      "level":"Elementary"
+      "level":"Intermediate"
     }
   ],
   "interests":[
@@ -479,6 +464,14 @@
       "keywords":[
         "Raspberry Pi",
         "Arduino"
+      ]
+    },
+    {
+      "name":"Webtoon/Cartoon",
+      "summary":"Reading webtoon(s) everyday",
+      "keywords":[
+        "Cartoon",
+        "Webtoon"
       ]
     }
   ],
