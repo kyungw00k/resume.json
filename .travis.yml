@@ -26,7 +26,8 @@ after_success:
   - git log -n1 --format="format:%an" > /tmp/resume-author
   - git log -n1 --format="format:%ae" > /tmp/resume-author-email
   - npm install -g hackmyresume
-  - hackmyresume BUILD en.json TO "$RESUME_BUILD_DIR"/resume.all 
+  - hackmyresume BUILD en.json TO "$RESUME_BUILD_DIR"/resume.all
+  - hackmyresume BUILD ko.json TO "$RESUME_BUILD_DIR"/resume.ko.all 
   - git init "$RESUME_BUILD_DIR"
   - pushd "$RESUME_BUILD_DIR" &&
     git checkout -b gh-pages &&
