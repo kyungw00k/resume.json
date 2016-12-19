@@ -348,11 +348,11 @@
       "url":"https://kyungw00k.github.io/"
     },
     {
-      "title":"라즈베리 파이 쿡북(Raspberry Pi Cookbook)",
+      "title":"[Korean] Raspberry Pi Cookbook",
       "flavor":"book",
       "date":"2015-01-05",
       "publisher":{
-        "name":"한빛미디어",
+        "name":"Hanbit Media",
         "url":"http://www.hanbit.co.kr/"
       },
       "url":"http://www.hanbit.co.kr/book/look.html?isbn=978-89-6848-153-6",
@@ -365,10 +365,10 @@
       "summary":"Translated into Korean"
     },
     {
-      "title":"자바스크립트 완벽 가이드 (JavaScript: The Definitive Guide) 6판",
+      "title":"[Korean] JavaScript: The Definitive Guide) 6th",
       "date":"2013-01-22",
       "publisher":{
-        "name":"인사이트 출판사",
+        "name":"Insightbook",
         "url":"http://www.insightbook.co.kr/"
       },
       "author":[
