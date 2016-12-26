@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <title>박경욱</title>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic'
+        rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <style>
+            * {
+              box-sizing: border-box;
+            }
+            
+            main {
+              display: block;
+            }
+            
+            body {
+              font-family: 'Helvetica Neue', 'Helvetica', 'Segoe UI', 'Calibri', 'sans-serif';
+              font-size: 15px;
+              color: #333;
+              line-height: 1.42857143;
+              background-color: #F0F0F0;
+              margin: 0;
+              padding: 0;
+            }
+            
+            /* Typical page borders are awkward when rendered to PDF. */
+            body.pdf {
+              background-color: #FFFFFF;
+            }
+            
+            /* Adobe or wkhtmltopdf has issues with the <main> tag, so we use <div> for
+            the PDF case, <main> for the HTML case, and style both via an ID. */
+            #main {
+              background-color: #FFF;
+              margin: 10px;
+              padding: 10px;
+              border: 1px solid #E6E6E6;
+            }
+            
+            body.pdf > #main {
+              border: none;
+            }
+            
+            #container > header {
+              padding-top: 6em;
+              padding-bottom: 1em;
+            }
+            
+            body.pdf #container > header {
+              padding: 0;
+            }
+            
+            #main > #container > section {
+              margin-left: 5em;
+              position: relative;
+              display: block;
+            }
+            
+            span.fa
+            {
+              position: absolute;
+              top: 4px;
+              left: -50px;
+              font-size: 30px;
+              color: #BFC1C3;
+            }
+            
+            hr {
+              margin-top: 20px;
+              margin-bottom: 20px;
+              border: 0;
+              border-top: 1px solid #EEE;
+            }
+            
+            .tenure, .keywords {
+              font-size: 75%;
+            }
+            
+            h1 {
+              margin: 0;
+              font-size: 46px;
+            }
+            
+            h2 {
+              font-size: 24px;
+              color: #BFC1C3;
+              text-transform: uppercase;
+              font-weight: normal;
+            }
+            
+            h3 {
+              margin-bottom: 0;
+              font-size: 18px;
+            }
+            
+            a, a:visited {
+              color: #428BCA;
+              text-decoration: none;
+              font-weight: bold;
+            }
+            
+            a:hover {
+              text-decoration: underline;
+            }
+            
+            .defunct {
+              color: #989898;
+              font-weight: bold;
+            }
+            
+            #summary > p > strong {
+              font-size: 1.25em;
+            }
+            
+            
+            .label-keyword {
+              display: inline-block;
+              background: #7eb0db;
+              color: white;
+              font-size: 0.9em;
+              padding: 5px;
+              border: 1px solid #357ebd;
+              border-radius: 5px;
+              margin-top: 2px;
+            }
+            
+            .card-skills {
+                position: relative;
+            }
+            .card-nested {
+                min-height: 0;
+                margin-bottom: 10px;
+                border-width: 1px 0 0 0;
+            }
+            .card {
+                background: #FFF;
+                border-radius: 3px;
+                padding: 10px;
+            }
+            
+            .skill-level {
+              border-radius: 3px;
+              position: absolute;
+              top: 10px;
+              bottom: 10px;
+              left: 0;
+              width: 10px;
+              box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5);
+            }
+            .skill-level .skill-progress {
+              position: absolute;
+              border-radius: 3px;
+              bottom: 0;
+              width: 100%;
+              -webkit-transition: height 1s ease;
+            }
+            .skill-level .skill-progress.beginner {
+              height: 50%;
+              background: #e74c3c;
+            }
+            .skill-level .skill-progress.intermediate {
+              height: 70%;
+              background: #f1c40f;
+            }
+            .skill-level .skill-progress.advanced {
+              height: 80%;
+              background: #428bca;
+            }
+            .skill-level .skill-progress.master {
+              height: 95%;
+              background: #5cb85c;
+            }
+            .skill-info {
+              margin-left: 10px;
+            }
+            @media (max-width: 480px) {
+              .skill-info {
+                margin-left: 20px;
+              }
+            }
+            
+            .list-unstyled {
+              padding-left: 0;
+              list-style: none;
+            }
+            
+            .card-skills {
+              position: relative;
+            }
+            
+            .space-top {
+                margin-top: 10px;
+            }
+            
+            #container {
+              max-width: 800px;
+              margin: 0 auto;
+            }
+            
+            #elevator-pitch {
+              text-align: center;
+              font-size: 24px;
+              color: #BFC1C3;
+              text-transform: uppercase;
+              font-weight: normal;
+            }
+            
+            .res-label {
+              font-style: italic;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <main id="main">
+            <div id="container">
+                <header>
+                     <h1>박경욱</h1>
+
+                    <div id="contact"></div>
+                </header>
+                <hr>
+                <section id="skills">
+                    <header>
+                         <h2>Skills</h2>
+
+                    </header> <span class="fa fa-lg fa-code"></span>
+
+                    <ul class="list-unstyled">
+                        <li class="card card-nested card-skills">
+                            <div class="skill-level" rel="tooltip" title="advanced" data-placement="left">
+                                <div class="skill-progress advanced"></div>
+                            </div>
+                            <div class="skill-info"> <strong>Web Development</strong>
+
+                                <div class="space-top labels"> <span class="label label-keyword">JavaScript</span>
+ <span class="label label-keyword">HTML</span>
+
+                                    <span
+                                    class="label label-keyword">HTML 5</span> <span class="label label-keyword">CSS</span>
+ <span class="label label-keyword">REST API</span>
+
+                                        <span
+                                        class="label label-keyword">MVC</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="card card-nested card-skills">
+                            <div class="skill-level" rel="tooltip" title="intermediate" data-placement="left">
+                                <div class="skill-progress intermediate"></div>
+                            </div>
+                            <div class="skill-info"> <strong>Java</strong>
+
+                                <div class="space-top labels"> <span class="label label-keyword">Spring MVC</span>
+ <span class="label label-keyword">Spring Security</span>
+
+                                    <span
+                                    class="label label-keyword">Hibernate</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="card card-nested card-skills">
+                            <div class="skill-level" rel="tooltip" title="beginner" data-placement="left">
+                                <div class="skill-progress beginner"></div>
+                            </div>
+                            <div class="skill-info"> <strong>Database</strong>
+
+                                <div class="space-top labels"> <span class="label label-keyword">MySQL</span>
+ <span class="label label-keyword">PostgreSQL</span>
+
+                                    <span
+                                    class="label label-keyword">NoSQL</span> <span class="label label-keyword">ORM</span>
+ <span class="label label-keyword">Hibernate</span>
+
+                                </div>
+                            </div>
+                        </li>
+                        <li class="card card-nested card-skills">
+                            <div class="skill-level" rel="tooltip" title="intermediate" data-placement="left">
+                                <div class="skill-progress intermediate"></div>
+                            </div>
+                            <div class="skill-info"> <strong>Android</strong>
+
+                                <div class="space-top labels"> <span class="label label-keyword">Java</span>
+ <span class="label label-keyword">ACRA</span>
+
+                                    <span
+                                    class="label label-keyword">Gradle</span> <span class="label label-keyword">NDK</span>
+
+                                </div>
+                            </div>
+                        </li>
+                        <li class="card card-nested card-skills">
+                            <div class="skill-level" rel="tooltip" title="advanced" data-placement="left">
+                                <div class="skill-progress advanced"></div>
+                            </div>
+                            <div class="skill-info"> <strong>JavaScript</strong>
+
+                                <div class="space-top labels"> <span class="label label-keyword">Node.JS</span>
+ <span class="label label-keyword">Angular.js</span>
+
+                                    <span
+                                    class="label label-keyword">Grunt</span> <span class="label label-keyword">Gulp</span>
+
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+                <hr>
+                <section id="employment">
+                    <header> <span class="fa fa-lg fa-building"></span> 
+                         <h2>employment</h2>
+
+                    </header>
+                    <div>
+                         <h3><em>Software Engineer</em>,
+    <a href="http://kakaocorp.com/en/main">Kakao</a>
+    </h3>
+ <span class="tenure">2015-07 — Present</span>
+| <span class="keywords">Hadoop Hive HiveQL Python ElasticSearch Ansible Airflow </span>
+
+                        <p>
+                            <p>Supply-Side Platform</p>
+                        </p>
+                        <ul>
+                            <li>Viewable Impression 측정 광고 스크립트 개발</li>
+                            <li>NativeAd 광고 스크립트 개발</li>
+                            <li><code>Ansible</code>을 이용해 다수의 서버에 동일한 환경 설정 유지하고 서버를 유연하게 확장할 수 있도록 자동화
+                                환경 구축</li>
+                            <li><code>Airflow</code>를 이용해 배치 Job 모니터링 환경 구축 경험</li>
+                            <li><code>Logstash</code>로 로그를 한 곳으로 모으고, <code>ElasticSearch Cluster</code>를
+                                구축하고 <code>Kibana</code>로 로그 검색 환경 구축 경험</li>
+                        </ul>
+                    </div>
+                    <div>
+                         <h3><em>Software Engineer</em>,
+    <a href="http://kakaocorp.com/en/main">Kakao(daumkakao)</a>
+    </h3>
+ <span class="tenure">2015-04 — 2015-07</span>
+| <span class="keywords">Hadoop Hive HiveQL </span>
+
+                        <p>
+                            <p>광고의 유저 타게팅을 향상시키기 위해 고민하는 팀에서 광고 로그를 처리하는 방법에 대해 배움</p>
+                        </p>
+                    </div>
+                    <div>
+                         <h3><em>Software Engineer</em>,
+    <a href="http://bit.ly/1WVxAWR">daumkakao(Daum Communications)</a>
+    </h3>
+ <span class="tenure">2013-09 — 2015-04</span>
+| <span class="keywords">Android Java JavaScript Jenkins Ansible YAML Angular.JS(v1.2.x) Spring MVC Spring Security Oracle Database 11g Hibernate </span>
+
+                        <p>
+                            <p>광고 플랫폼 개발 및 유지보수, Publisher용 광고 호출 SDK를 Android/JavaScript로 만든 경험</p>
+                        </p>
+                        <ul>
+                            <li><code>Jenkins</code>로 배포 이력을 관리</li>
+                            <li><code>Ansible</code>을 이용해 다수의 서버에 동일한 환경 설정 유지하고 서버를 유연하게 확장할 수 있도록 자동화
+                                환경 구축</li>
+                            <li>IAB MRAID 1와 2 API를 Android와 JavaScript로 각각 구현해서 Production 레벨에서 Serving
+                                한 경험</li>
+                            <li>DSP/SSP 기존 유지보수 경험 및 신규 플랫폼 개발</li>
+                            <li><a href="https://adam.biz.daum.net/">https://adam.biz.daum.net/</a>
+                            </li>
+                            <li><a href="https://adam.biz.daum.net/advertiser/">https://adam.biz.daum.net/advertiser/</a>
+                            </li>
+                            <li><a href="https://adam.biz.daum.net/marketer/">https://adam.biz.daum.net/marketer/</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                         <h3><em>Frontend Engineer</em>,
+    <a href="http://bit.ly/1THG5ix">Daum Communications</a>
+    </h3>
+ <span class="tenure">2009-07 — 2012-08</span>
+| <span class="keywords">HTML HTML5 CSS1/2 JavaScript </span>
+
+                        <p>
+                            <p>사내 여러 서비스의 Frontend 쪽 유지 보수 및 신규 개발을 하면서, 전반적인 Frontend(JavaScript/HTML/CSS)
+                                개발 경험을 배움</p>
+                        </p>
+                        <ul>
+                            <li><a href="https://web.archive.org/web/20090910101711/http://adhow.biz.daum.net/main/main.daum?">https://web.archive.org/web/20090910101711/http://adhow.biz.daum.net/main/main.daum?</a>
+                            </li>
+                            <li><a href="https://web.archive.org/web/20100730210408/http://hyphen.daum.net/">https://web.archive.org/web/20100730210408/http://hyphen.daum.net/</a>
+                            </li>
+                            <li><a href="https://web.archive.org/web/20101026035400/http://biz.daum.net/">https://web.archive.org/web/20101026035400/http://biz.daum.net/</a>
+                            </li>
+                            <li><a href="https://web.archive.org/web/20110504060551/http://hope.daum.net/">https://web.archive.org/web/20110504060551/http://hope.daum.net/</a>
+                            </li>
+                            <li><a href="https://web.archive.org/web/20111203121815/http://display.biz.daum.net/">https://web.archive.org/web/20111203121815/http://display.biz.daum.net/</a>
+                            </li>
+                            <li><a href="https://web.archive.org/web/20130725095529/http://keyword.biz.daum.net/top/intro.do">https://web.archive.org/web/20130725095529/http://keyword.biz.daum.net/top/intro.do</a>
+                            </li>
+                            <li><a href="http://game.daum.net/flash/">http://game.daum.net/flash/</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                         <h3><em>Researcher Engineer</em>,
+    TmaxCore
+    </h3>
+ <span class="tenure">2009-02 — 2009-07</span>
+| <span class="keywords">Win32 C++ MFC </span>
+
+                        <p>
+                            <p>TmaxWindow에서 사용하는 MFC42.DLL 개발에 참여했고, UI Component 위주로 개발을 진행했음</p>
+                        </p>
+                        <ul>
+                            <li>CControl and etc class development</li>
+                        </ul>
+                    </div>
+                </section>
+                <hr>
+                <section id="projects">
+                    <header> <span class="fa fa-lg fa-star"></span> 
+                         <h2>projects</h2>
+
+                    </header>
+                    <div>
+                        
+<h3><em>Owner</em>,
+<a href="https://github.com/kyungw00k/alfred-daumbook-workflow">alfred-daumbook-workflow</a>
+</h3>
+
+<span class="tenure">2016-05 — Present</span>
+| <span class="keywords">JavaScript JSON Alfred </span>
+
+                    </div>
+                    <div>
+                        
+<h3><em>Owner</em>,
+<a href="https://github.com/kyungw00k/alfred-kozip-workflow">alfred-kozip-workflow</a>
+</h3>
+
+<span class="tenure">2016-05 — Present</span>
+| <span class="keywords">JavaScript JSON Alfred </span>
+
+                    </div>
+                    <div>
+                        
+<h3><em>Owner</em>,
+<a href="https://github.com/kyungw00k/nightmare-webrequest-addon">nightmare-webrequest-addon</a>
+</h3>
+
+<span class="tenure">2016-04 — 2016-04</span>
+| <span class="keywords">JavaScript Node.JS Electron Nightmare </span>
+
+                        <p>Nightmare를 이용해 HTTP Request Capturing하기 위한 목적으로 만듦</p>
+                    </div>
+                    <div>
+                        
+<h3><em>Owner</em>,
+<a href="https://github.com/kyungw00k/URLBroadcasterProject">URLBroadcasterProject</a>
+</h3>
+
+<span class="tenure">2012-02 — 2013-11</span>
+| <span class="keywords">Android Java Google App Engine </span>
+
+                    </div>
+                    <div>
+                        
+<h3><em>Owner</em>,
+<a href="https://github.com/kyungw00k/jsoj">JavaScript Online Judge</a>
+</h3>
+
+<span class="tenure">2010-11 — 2010-12</span>
+| <span class="keywords">JavaScript Java Problem Solving Google App Engine </span>
+
+                    </div>
+                </section>
+                <hr>
+                <section id="education">
+                    <header> <span class="fa fa-lg fa-mortar-board"></span> 
+                         <h2>education</h2>
+
+                    </header>
+                    <div>
+                        
+<h3><em>BSCS</em>,
+<a href="http://eng.ssu.ac.kr/">Soongsil University</a>
+</h3>
+
+<span class="tenure">2004-03 — 2009-02</span>
+| <span class="keywords">컴퓨터 수학(Computer Mathematics) 어셈블리 언어(Assembly Languages) 자료구조(Data Structures) 확률과 통계(Probability &amp; Statistics) 논리회로 설계 및 실험(Logic Circuit Design &amp; Lab) 선형대수(Linear Algebra) 알고리즘(Algorithms) 웹 프로그래밍(Web Programming) 시스템 프로그래밍(System Programming) 컴퓨터 구조(Computer Architectures) 프로그래밍 언어(Programming Languages) 형식언어 및 오토마타(Formal Language and Automata) 데이터베이스(Database) 소프트웨어 공학(Software Engineering) 운영체제(Operating Systems) 유한수학의 이해(Introduction to finite Mathematics) 컴파일러 설계 및 실습(Compiler Design and Practice) 고급 웹 프로그래밍 설계 및 실습(Advanced Web Programming Course) 데이터베이스 응용(Database Applications) 문제해결(Problem Solving) 유비쿼터스 응용 시스템(Uniquitous Application Systems) </span>
+
+                    </div>
+                </section>
+                <hr>
+                <section id="writing">
+                    <header> <span class="fa fa-lg fa-pencil"></span> 
+                         <h2>writing</h2>
+
+                    </header>
+                    <div>
+                         <h3><em><a href="http://www.hanbit.co.kr/book/look.html?isbn=978-89-6848-153-6">라즈베리 파이 쿡북(Raspberry Pi Cookbook)</a></em>,
+      한빛미디어</h3>
+ <span class="tenure">2015</span>
+
+                        <p>Translated into Korean</p>
+                    </div>
+                    <div>
+                         <h3><em><a href="https://kyungw00k.github.io/">Personal Blog</a></em>,
+      </h3>
+ <span class="tenure">2015</span>
+
+                        <p>기술 위주 블로그</p>
+                    </div>
+                    <div>
+                         <h3><em><a href="https://www.gitbook.com/read/book/kyungw00k/today-i-learned">(Deprecated)Today I Learned</a></em>,
+      GitBook</h3>
+ <span class="tenure">2015</span>
+
+                        <p>Write something I learned about, mostly technical issue.</p>
+                    </div>
+                    <div>
+                         <h3><em><a href="http://www.insightbook.co.kr/books/programming-insight/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%99%84%EB%B2%BD-%EA%B0%80%EC%9D%B4%EB%93%9C">자바스크립트 완벽 가이드 (JavaScript: The Definitive Guide) 6판</a></em>,
+      인사이트 출판사</h3>
+ <span class="tenure">2013</span>
+
+                        <p>Translated into Korean</p>
+                    </div>
+                    <div>
+                         <h3><em><a href="https://kyungw00k.wordpress.com">(Deprecated)Just another geek weblog</a></em>,
+      Wordpress.com</h3>
+ <span class="tenure">2004</span>
+
+                        <p>My blog</p>
+                    </div>
+                </section>
+                <hr>
+                <section id="reading">
+                    <header> <span class="fa fa-lg fa-book"></span> 
+                         <h2>reading</h2>
+
+                    </header>
+                    <div>
+                         <h3><em><a href="http://javascriptweekly.com/">JavaScript Weekly</a></em></h3>
+ <span class="tenure">Current</span>
+
+                    </div>
+                    <div>
+                         <h3><em><a href="http://nodeweekly.com/">Node Weekly</a></em></h3>
+ <span class="tenure">Current</span>
+
+                    </div>
+                    <div>
+                         <h3><em><a href="http://www.baeldung.com/java-web-weekly">Java Web Weekly</a></em></h3>
+ <span class="tenure">Current</span>
+
+                    </div>
+                    <div>
+                         <h3><em><a href="https://www.raspberrypi.org/weekly/">Raspberry Pi Weekly Newsletter</a></em></h3>
+ <span class="tenure">Current</span>
+
+                    </div>
+                </section>
+                <hr>
+                <section id="speaking">
+                    <header> <span class="fa fa-lg fa-users"></span> 
+                         <h2>speaking</h2>
+
+                    </header>
+                    <div>
+                         <h3><em>When Hardware met NodeJS</em>, NodeConf KR 2012</h3>
+ <span class="tenure">2012</span>
+
+                        <ul>
+                            <li>Slide : <a href="http://kyungw00k.github.io/nodeconf.kr-2012">http://kyungw00k.github.io/nodeconf.kr-2012</a>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <hr>
+                <section id="interests">
+                    <header> <span class="fa fa-lg fa-bicycle"></span> 
+                         <h2>interests</h2>
+
+                    </header>
+                    <div>
+                         <h3><em>애플 제품이라면 다 좋음</em></h3>
+ <span class="tenure">Current</span>
+
+                        <p>하지만 돈이 없어서 수집 하지는 못하고 있는걸 팔고 새로 사는 형태</p>
+                    </div>
+                    <div>
+                         <h3><em>Internet of Things</em></h3>
+ <span class="tenure">Current</span>
+
+                        <p>Arduino와 Raspberry Pi를 이용해 프로토타이핑 하는걸 좋아함</p>
+                    </div>
+                    <div>
+                         <h3><em>Webtoon/Cartoon</em></h3>
+ <span class="tenure">Current</span>
+
+                        <p>웹툰을 매일 봅니다. 안보는 날을 찾기 힘듦.</p>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </body>
+
+</html>
