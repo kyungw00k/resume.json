@@ -28,6 +28,8 @@ after_success:
   - npm install -g hackmyresume
   - hackmyresume BUILD en.json TO "$RESUME_BUILD_DIR"/resume.all
   - hackmyresume BUILD ko.json TO "$RESUME_BUILD_DIR"/resume.ko.all 
+  - rm -rf  "$RESUME_BUILD_DIR"/*.png.html
+  - rm -rf  "$RESUME_BUILD_DIR"/*.pdf.html
   - git init "$RESUME_BUILD_DIR"
   - pushd "$RESUME_BUILD_DIR" &&
     git checkout -b gh-pages &&
