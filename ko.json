@@ -33,8 +33,31 @@
         "employer":"Kakao",
         "url":"http://kakaocorp.com/en/main",
         "position":"Software Engineer",
+        "summary":"Ad SDK Dev Cell",
+        "start":"2017-07-08",
+        "highlights":[
+          "광고 SDK 개발 PM",
+          "Kakao 광고 및 Midas 플랫폼 소재 템플릿 개발 및 유지보수",
+          "Outstream Video Banner 소재 개발",
+          "Kakao Pixel(Web) 개발",
+          "Kakao Ad Android SDK 개발",
+          "Banner/Native Ad SDK 개발 및 유지보수"
+        ],
+        "keywords":[
+          "Kakao Pixel",
+          "Video Banner",
+          "Ad Creative",
+          "Publisher SDK",
+          "Advertising SDK"
+        ]
+      },
+      {
+        "employer":"Kakao",
+        "url":"http://kakaocorp.com/en/main",
+        "position":"Software Engineer",
         "summary":"Supply-Side Platform",
         "start":"2015-07-08",
+        "end":"2017-07-07",
         "highlights":[
           "Viewable Impression 측정 광고 스크립트 개발",
           "NativeAd 광고 스크립트 개발",
